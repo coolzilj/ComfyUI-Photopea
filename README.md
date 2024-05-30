@@ -4,6 +4,10 @@ Edit images in the Photopea editor directly within ComfyUI.
 
 ## Usage
 
+
+https://github.com/coolzilj/ComfyUI-Photopea/assets/1059327/5f4c7ab3-f3b2-45e4-8130-aa9d3594ea2d
+
+
 This extension adds an `Open in Photopea editor` option when you right-click on any node that has an image or mask output.  
 When you click it, it loads the Photopea editor in an iframe with the image related to the node.  
 You can edit the image inside Photopea, and once you're satisfied, click `Save to node` to replace the image with the edited version from Photopea.
