@@ -2,6 +2,25 @@
 
 Edit images in the Photopea editor directly within ComfyUI.
 
+## Installation
+
+### Git
+
+  ```
+  cd custom_nodes
+  git clone https://github.com/coolzilj/ComfyUI-Photopea.git
+  ```
+
+Restart ComfyUI and the extension should be loaded.
+
+### ComfyUI Manager
+
+1. Open ComfyUI and go to `Manager` > `Install Custom Nodes`.
+
+2. Search for `ComfyUI-Photopea` in the search bar.
+
+3. Click `Install`.
+
 ## Usage
 
 
