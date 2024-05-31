@@ -101,6 +101,10 @@ class LJPhotopeaEditorDialog extends ComfyDialog {
     bottom_panel.style.height = "50px";
     this.element.appendChild(bottom_panel);
 
+    self.fullscreenButton = this.createLeftButton("Fullscreen", () => {
+      self.toggleFullscreen();
+    });
+
     var cancelButton = this.createRightButton("Cancel", () => {
         self.close();
       });
@@ -109,6 +113,7 @@ class LJPhotopeaEditorDialog extends ComfyDialog {
         self.save(self);
     });
 
+    bottom_panel.appendChild(self.fullscreenButton);
     bottom_panel.appendChild(self.saveButton);
     bottom_panel.appendChild(cancelButton);
   }
@@ -137,12 +142,15 @@ class LJPhotopeaEditorDialog extends ComfyDialog {
 
     this.iframe_container = document.createElement("div");
     this.iframe_container.style.flex = "1";
+    this.iframe_container.style.paddingBottom = "70px";
     this.element.appendChild(this.iframe_container);
     this.element.style.display = "flex";
     this.element.style.flexDirection = "column";
     this.element.style.width = "80vw";
     this.element.style.height = "80vh";
-    this.element.style.paddingBottom = "70px";
+    this.element.style.maxWidth = "100vw";
+    this.element.style.maxHeight = "100vh";
+    this.element.style.padding = "0";
     this.element.style.zIndex = 8888;
     this.iframe_container.appendChild(this.iframe);
     
@@ -179,6 +187,18 @@ class LJPhotopeaEditorDialog extends ComfyDialog {
 
     ComfyApp.onClipspaceEditorSave();
 		this.close();
+  }
+
+  toggleFullscreen() {
+    if (this.element.style.width === "100vw") {
+      this.element.style.width = "80vw";
+      this.element.style.height = "80vh";
+      this.fullscreenButton.innerText = "Fullscreen";
+    } else {
+      this.element.style.width = "100vw";
+      this.element.style.height = "100vh";
+      this.fullscreenButton.innerText = "Exit Fullscreen";
+    }
   }
 
   async postMessageToPhotopea(message) {
