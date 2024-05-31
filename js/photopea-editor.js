@@ -126,30 +126,32 @@ class LJPhotopeaEditorDialog extends ComfyDialog {
       this.saveButton.innerText = "Save";
     }
 
-    const target_image_path = ComfyApp.clipspace.imgs[ComfyApp.clipspace['selectedIndex']].src;
-    imageToBase64(target_image_path, (dataURL) => {
-      const params = `{
-        "files": ["${dataURL}"]
-      }`
-      this.iframe = $el("iframe", {
-        src: `https://www.photopea.com/#${encodeURIComponent(params)}`,
-        style: {
-          width: "100%",
-          height: "100%",
-          border: "none",
-        },
-      });
-      this.iframe_container = document.createElement("div");
-      this.iframe_container.style.flex = "1";
-      this.element.appendChild(this.iframe_container);
-      this.element.style.display = "flex";
-      this.element.style.flexDirection = "column";
-      this.element.style.width = "80vw";
-      this.element.style.height = "80vh";
-      this.element.style.paddingBottom = "70px";
-      this.element.style.zIndex = 8888;
-      this.iframe_container.appendChild(this.iframe);
+    this.iframe = $el("iframe", {
+      src: `https://www.photopea.com/`,
+      style: {
+        width: "100%",
+        height: "100%",
+        border: "none",
+      },
     });
+
+    this.iframe_container = document.createElement("div");
+    this.iframe_container.style.flex = "1";
+    this.element.appendChild(this.iframe_container);
+    this.element.style.display = "flex";
+    this.element.style.flexDirection = "column";
+    this.element.style.width = "80vw";
+    this.element.style.height = "80vh";
+    this.element.style.paddingBottom = "70px";
+    this.element.style.zIndex = 8888;
+    this.iframe_container.appendChild(this.iframe);
+    
+    this.iframe.onload = () => { 
+      const target_image_path = ComfyApp.clipspace.imgs[ComfyApp.clipspace['selectedIndex']].src;
+      imageToBase64(target_image_path, (dataURL) => {
+        this.postMessageToPhotopea(`app.open("${dataURL}", null, false);`, "*");
+      });
+    };
   }
 
   close() {
