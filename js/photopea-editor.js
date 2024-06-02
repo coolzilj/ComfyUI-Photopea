@@ -137,6 +137,7 @@ class LJPhotopeaEditorDialog extends ComfyDialog {
         width: "100%",
         height: "100%",
         border: "none",
+        position: "relative",
       },
     });
 
