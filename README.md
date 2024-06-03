@@ -42,3 +42,5 @@ There is also a `Photopea Editor` button in the `Clipspace` panel.
 ## Last but not lease
 If you find it useful or have special needs in your workflow, I'm open to your feedback.  
 Twitter: [@SongZi](https://x.com/Songzi39590361)
+
+[![Star History Chart](https://api.star-history.com/svg?repos=coolzilj/ComfyUI-Photopea&type=Date)](https://star-history.com/#coolzilj/ComfyUI-Photopea&Date)
