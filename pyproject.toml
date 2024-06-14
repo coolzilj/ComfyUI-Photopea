@@ -1,0 +1,14 @@
+[project]
+name = "comfyui-photopea"
+description = "Edit images in the Photopea editor directly within ComfyUI."
+version = "1.0.0"
+license = "LICENSE"
+
+[project.urls]
+Repository = "https://github.com/coolzilj/ComfyUI-Photopea"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI-Photopea"
+Icon = ""
